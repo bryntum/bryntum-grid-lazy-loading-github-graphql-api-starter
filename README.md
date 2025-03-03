@@ -30,4 +30,4 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). You'll see a Bryntum TreeGrid with issues data from the VS Code GitHub Repository:
 
-![Bryntum tree Grid](./bryntum-tree-grid.png)
+![Bryntum TreeGrid](./bryntum-tree-grid.png)
