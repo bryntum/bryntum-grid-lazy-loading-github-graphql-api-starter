@@ -1,4 +1,4 @@
-# Using a Bryntum tree Grid with the GitHub GraphQL API: Lazy loading, on demand data fetching, and remote filtering
+# Using a Bryntum TreeGrid with the GitHub GraphQL API: Lazy loading, on-demand data fetching, and remote filtering
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -28,6 +28,6 @@ To run the development server, use the following command:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). You'll see a Bryntum tree Grid with issues data from the VS Code GitHub Repository:
+Open [http://localhost:3000](http://localhost:3000). You'll see a Bryntum TreeGrid with issues data from the VS Code GitHub Repository:
 
 ![Bryntum tree Grid](./bryntum-tree-grid.png)
