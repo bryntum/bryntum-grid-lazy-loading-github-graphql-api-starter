@@ -41,8 +41,10 @@ export default function Grid() {
     const commentEndCursorRef = useRef<string | null>(null);
 
     const store: StoreConfig = useMemo(() => ({
-        modelClass : GitHubIssue,
-        readUrl    : '/api/read',
+        tree            : true,
+        filterParamName : 'filters',
+        modelClass      : GitHubIssue,
+        readUrl         : '/api/read',
         onBeforeLoad({ params }: { params: {endCursor: string | null, commentEndCursor: string | null } }) {
             params.endCursor = endCursorRef.current;
             params.commentEndCursor = commentEndCursorRef.current;
@@ -72,6 +74,16 @@ export default function Grid() {
             chunkSize : 100 // default value
         },
         listeners : {
+            beforeFilter({ source }) {
+            // Convert boolean children to an empty array for filtering
+                if (source.records) {
+                    source.records.forEach(record => {
+                        if (typeof record.children === 'boolean') {
+                            record.children = [];
+                        }
+                    });
+                }
+            },
             lazyLoadStarted() {
                 setNetworkValue({
                     text  : 'Loading',
