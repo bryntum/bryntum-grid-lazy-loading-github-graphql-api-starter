@@ -23,9 +23,10 @@ export function createGitHubIssueStore(
     setNetworkValue: (value: NetworkValueTypes) => void
 ): AjaxStore {
     return new AjaxStore({
-        tree       : true,
-        modelClass : GitHubIssueModel,
-        readUrl    : '/api/read',
+        tree            : true,
+        filterParamName : 'filters',
+        modelClass      : GitHubIssueModel,
+        readUrl         : '/api/read',
         onBeforeLoad(event: { source: Store; action: string; url: string; params: object }) {
             (event.params as { endCursor: string | null; commentEndCursor: string | null }).endCursor = endCursorRef.current;
             (event.params as { endCursor: string | null; commentEndCursor: string | null }).commentEndCursor = commentEndCursorRef.current;
