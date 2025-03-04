@@ -10,8 +10,6 @@
     "lint:fix": "npm run lint . --fix"
   },
   "dependencies": {
-    "@bryntum/grid": "^6.1.7",
-    "@bryntum/grid-react": "^6.1.7",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
