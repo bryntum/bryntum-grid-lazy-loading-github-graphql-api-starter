@@ -10,7 +10,7 @@ First install the dependencies:
 npm install
 ```
 
-Next, install the Bryntum Grid component by following the instructions to [access the Bryntum npm registry](https://bryntum.com/products/grid/docs/guide/Grid/quick-start/javascript-npm#access-to-npm-registry) and then [install the Grid](https://bryntum.com/products/grid/docs/guide/Grid/quick-start/javascript-npm#install-component).
+Next, install the Bryntum Grid component by following the instructions to [access the Bryntum npm registry](https://bryntum.com/products/grid/docs/guide/Grid/quick-start/javascript-npm#access-to-npm-registry) and then [install the Grid and React Grid wrapper](https://bryntum.com/products/grid/docs/guide/Grid/quick-start/react#install-bryntum-grid-packages).
 
 ## GitHub personal access token
 
