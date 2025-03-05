@@ -1,13 +1,19 @@
+
 import { AjaxStore, StringHelper } from '@bryntum/grid';
 import { BryntumTreeGridProps } from '@bryntum/grid-react';
-import { NetworkValueTypes } from '@/storeConfig';
+import { NetworkValueTypes } from './components/Grid';
 
 type GridConfigOptions = {
   networkValue: NetworkValueTypes;
   store: AjaxStore;
 };
 
-export function createGridConfig({ networkValue, store }: GridConfigOptions): BryntumTreeGridProps {
+export function createGridConfig(
+    {
+        networkValue,
+        store
+    }: GridConfigOptions
+): BryntumTreeGridProps {
     return {
         animateTreeNodeToggle : true,
         filterFeature         : {

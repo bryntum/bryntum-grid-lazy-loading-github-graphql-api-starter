@@ -5,7 +5,6 @@ const Grid = dynamic(
 );
 
 const GridWrapper = () => {
-
     return (
         <Grid />
     );

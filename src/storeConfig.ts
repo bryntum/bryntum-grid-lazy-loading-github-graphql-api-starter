@@ -1,7 +1,8 @@
-import { AjaxStore, Store } from '@bryntum/grid';
 import { RefObject } from 'react';
+import { AjaxStore } from '@bryntum/grid';
 import { BryntumTreeGrid } from '@bryntum/grid-react';
 import { GitHubIssueModel } from './lib/GitHubIssueModel';
+import { NetworkValueTypes } from './components/Grid';
 
 type OnAfterRequest = Response & {
   parsedJson: {
@@ -9,11 +10,6 @@ type OnAfterRequest = Response & {
     commentEndCursor: string;
     total: number;
   };
-};
-
-export type NetworkValueTypes = {
-  text: 'Idle' | 'Loading' | 'Committing';
-  color: 'green' | 'blue' | 'red';
 };
 
 export function createGitHubIssueStore(
@@ -27,9 +23,17 @@ export function createGitHubIssueStore(
         filterParamName : 'filters',
         modelClass      : GitHubIssueModel,
         readUrl         : '/api/read',
-        onBeforeLoad(event: { source: Store; action: string; url: string; params: object }) {
-            (event.params as { endCursor: string | null; commentEndCursor: string | null }).endCursor = endCursorRef.current;
-            (event.params as { endCursor: string | null; commentEndCursor: string | null }).commentEndCursor = commentEndCursorRef.current;
+        onBeforeLoad(event) {
+            (event.params as
+                {
+                    endCursor: string | null;
+                    commentEndCursor: string | null
+                }
+            ).endCursor = endCursorRef.current;
+            (event.params as {
+              endCursor: string | null;
+              commentEndCursor: string | null
+            }).commentEndCursor = commentEndCursorRef.current;
         },
         onAfterRequest({ response }) {
             const res = response as OnAfterRequest;

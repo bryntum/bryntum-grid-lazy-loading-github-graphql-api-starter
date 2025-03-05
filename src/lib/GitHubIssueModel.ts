@@ -13,5 +13,3 @@ export class GitHubIssueModel extends GridRowModel {
     }
 
 }
-
-GitHubIssueModel.convertEmptyParentToLeaf = true;

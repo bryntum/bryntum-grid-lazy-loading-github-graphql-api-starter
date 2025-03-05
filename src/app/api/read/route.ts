@@ -51,12 +51,11 @@ type MappedComment = {
   title: string;
 }
 
-
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const count = searchParams.get('count');
     const filters = searchParams.get('filters');
-    const endCursor = searchParams.get('endCursor');
+    const endCursor = searchParams.get('endCursor') || 'null';
     const commentEndCursor = searchParams.get('commentEndCursor');
     const parentId = searchParams.get('parentId');
 
@@ -213,7 +212,6 @@ export async function GET(request: NextRequest) {
             });
 
             const rawData = await response.json();
-
             const issues = rawData.data.repository.issues;
             let newEndCursor = null;
             if (issues.pageInfo.hasNextPage) {

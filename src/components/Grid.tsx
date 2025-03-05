@@ -1,7 +1,13 @@
-import { createGridConfig } from '@/gridConfig';
-import { createGitHubIssueStore, NetworkValueTypes } from '@/storeConfig';
+import { useMemo, useRef, useState
+} from 'react';
 import { BryntumTreeGrid } from '@bryntum/grid-react';
-import {  useMemo, useRef, useState } from 'react';
+import { createGridConfig } from '@/gridConfig';
+import { createGitHubIssueStore } from '@/storeConfig';
+
+export type NetworkValueTypes = {
+  text: 'Idle' | 'Loading' | 'Committing';
+  color: 'green' | 'blue' | 'red';
+};
 
 export default function Grid() {
     const gridRef = useRef<BryntumTreeGrid>(null);
@@ -23,7 +29,9 @@ export default function Grid() {
     );
 
     const gridProps = useMemo(() =>
-        createGridConfig({ networkValue, store }),
+        createGridConfig({
+            networkValue,
+            store }),
     [networkValue, store]
     );
 
